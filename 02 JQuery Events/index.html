@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuenry lesson </title>
+    <script src="../Jquery3.6.4/jquery-3.6.4.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="btn btn-dark" id="click">Click me </div> Click
+        <div class="btn btn-dark" id="dbclick">Click me </div>dblclick
+        <div class="btn btn-dark" id="hover">Click me </div>hover
+        <div class="btn btn-dark" id="mouleave">Click me </div>moseleave
+        <div class="btn btn-dark" id="mousehleave">hover and leave</div>mose hover ,leave
+
+        <div class="row my-5">
+            <div class="h2">when click this it event came from my function</div>
+            <div class="col">
+                <div class="btn btn-success" id="btnclick">Click me </div>
+            </div>
+            <div class="col">
+                <div class="h3" id="h3click">click me </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#click').click(function () {
+                // alert("you clicked");
+                $(this).css("background-color", "blue");
+            })
+
+            $('#dbclick').dblclick(function () {
+                alert('you have double clicked!')
+            });
+
+            $('#hover').hover(function () {
+                $(this).css("background-color", "blue");
+            });
+
+            //double event same func
+            $('#mouleave').on('mouseenter mouseleave', function () {
+                $(this).css("background-color", "blue");
+            })
+
+            //many events handlers
+            $('#mousehleave').on({
+                mouseenter: function () {
+                    $(this).css("background-color", "blue");
+                },
+                mouseleave: function () {
+                    $(this).css("background-color", "red");
+                },
+            })
+
+            //we can use same handler operation in different places
+            function myfunction(){
+                $(this).css("background-color","blue");
+            }
+
+            $(document).ready(function(){
+                $('#btnclick').on('click',myfunction);
+                $('#h3click').on('click',myfunction);
+            });
+
+        });
+    </script>
+</body>

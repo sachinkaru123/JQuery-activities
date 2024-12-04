@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuenry lesson </title>
+    <script src="/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <p id="pid">This is a paragraph Click</p>
+    <script>
+        // **this is a way using javascript**
+        // document.getElementById('pid').onclick = function(){
+        //     window.alert("You have clicked");
+        // }
+
+
+        // **lets see jQuery**
+        // $('#pid').click(function(){
+        //     alert("You have clicked");
+        // });
+
+        //we can use this when load whole document
+        $(document).ready(function () {
+            $('#pid').click(function () {
+                alert("You have clicked");
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
